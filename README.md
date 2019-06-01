@@ -1,6 +1,7 @@
-# hack2k19
-
-A new Flutter Hachathon 2019
+## Flutter socializing
+    - App which will let flutter community to singup for different meetups or other such events.
+    - These will be specific to the flutter community and will contain data from varies platforms like     meetup.com,getmeetingstar.com,groupvalley.com
+    - takes feedback from users about the events
 
 ## Team Members
 
@@ -8,7 +9,3 @@ A new Flutter Hachathon 2019
 - [Devarsh Ranpura](https://github.com/DevarshRanpara)
 - [Kishor Patel](https://github.com/kishorpatel85)
 - [Bhavin Kalal]()
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
