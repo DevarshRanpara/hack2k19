@@ -3,13 +3,13 @@
     - These will be specific to the flutter community and will contain data from varies platforms like     meetup.com,getmeetingstar.com,groupvalley.com
     - takes feedback from users about the events
 ##Login
-![](./screenshots/1.jpeg 20*20)
+<img src="./screenshots/1.jpeg" height="300em" />
 ## View Events
-![Screenshots on iOS](./screenshots/8.jpeg)
+<img src="./screenshots/8.jpeg" height="300em" />
 ## View Events Details
-![Screenshots on iOS](./screenshots/6.jpeg)
+<img src="./screenshots/6.jpeg" height="300em" />
 ## FeedBack
-![Screenshots on iOS](./screenshots/7.jpeg)
+<img src="./screenshots/7.jpeg" height="300em" />
 
 ## Team Members
 
