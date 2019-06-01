@@ -5,7 +5,7 @@
 ##Login
 
 ## View Events Details
-![Screenshots on iOS](./screenshots/6.jpeg)
+![Screenshots on iOS](./screenshots/6.jpeg){:height="50%" width="50%"}
 ## FeedBack
 
 ## Team Members
