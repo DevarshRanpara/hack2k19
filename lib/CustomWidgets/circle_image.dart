@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Custom Widget to Show meetup icon in circle
 class CircularImage extends StatelessWidget {
   final double _width, _height;
   final ImageProvider image;

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hack2k19/misc/rating.dart';
 
+// Feedback UI
+
 class Feed_back extends StatefulWidget {
   @override
   _Feed_backState createState() => new _Feed_backState();
@@ -30,6 +32,7 @@ class _Feed_backState extends State<Feed_back> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Center(
+          // Background Gradient
           child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -50,6 +53,10 @@ class _Feed_backState extends State<Feed_back> {
                   height: 50.0,
                   color: Colors.white,
                 ),
+
+                // Title for Page
+
+
                 Padding(
                   padding: const EdgeInsets.all(48.0),
                   child: Text(
@@ -57,6 +64,10 @@ class _Feed_backState extends State<Feed_back> {
                     style: TextStyle(fontSize: 30, color: Colors.red),
                   ),
                 ),
+
+                //   Rating Bar for page
+
+
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 55, horizontal: 0),
@@ -79,6 +90,10 @@ class _Feed_backState extends State<Feed_back> {
                     ],
                   ),
                 ),
+
+                //  Comment Box
+
+
                 Padding(
                   padding: const EdgeInsets.all(18.0),
                   child: TextField(
@@ -89,6 +104,10 @@ class _Feed_backState extends State<Feed_back> {
                     ),
                   ),
                 ),
+
+                // Submit button
+
+                
                 Padding(
                   padding: const EdgeInsets.all(28.0),
                   child: RaisedButton(

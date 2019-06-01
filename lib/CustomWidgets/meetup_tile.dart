@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hack2k19/Classes/meetup.dart';
 import 'package:hack2k19/CustomWidgets/circle_image.dart';
 
+
+// Custom Meetup tile to call
+
 class MeetupTile extends StatelessWidget {
   final Meetup meetup;
   MeetupTile(this.meetup);

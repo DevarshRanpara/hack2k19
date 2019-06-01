@@ -2,6 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hack2k19/Classes/strings.dart';
 
+
+// Sign UP Button
 class FancyButton extends StatelessWidget {
   FancyButton({@required this.onPressed});
 

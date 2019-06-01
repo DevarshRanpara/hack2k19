@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+
+// Custom card to use in Login, Singn Up, Forget Pass UI
 class CustomCard extends StatefulWidget {
 
   final Widget childView;

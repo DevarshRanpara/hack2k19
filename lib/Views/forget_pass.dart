@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hack2k19/Classes/strings.dart';
 import 'package:hack2k19/CustomWidgets/custom_card.dart';
 
+// Forget password UI
+
 class ForgotPassView extends StatefulWidget {
   @override
   _ForgotPassViewState createState() => _ForgotPassViewState();
@@ -12,6 +14,9 @@ class _ForgotPassViewState extends State<ForgotPassView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+
+        // Background Gradient
+
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
