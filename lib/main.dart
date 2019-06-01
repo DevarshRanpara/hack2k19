@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hack2k19/Views/login_view.dart';
 
+import 'Views/feed_back.dart';
 import 'Views/home_view.dart';
 
 
@@ -15,6 +16,6 @@ import 'Views/home_view.dart';
        theme: ThemeData(
          primarySwatch: Colors.blue,
        ),
-       home: new Quakes());
+       home: new Feed_back());
    }
  }

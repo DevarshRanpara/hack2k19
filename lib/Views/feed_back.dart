@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hack2k19/misc/rating.dart';
 
 
-class MyHomePage extends StatefulWidget {
+class Feed_back extends StatefulWidget {
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _Feed_backState createState() => new _Feed_backState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _Feed_backState extends State<Feed_back> {
   TextEditingController _textFieldController = TextEditingController();
   List<Color> colors = [
     Colors.red,
