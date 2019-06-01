@@ -4,6 +4,7 @@ import 'package:hack2k19/Classes/temp_data.dart';
 import 'package:hack2k19/Controller/home_view_controller.dart';
 import 'package:hack2k19/CustomWidgets/loading_animation.dart';
 import 'package:hack2k19/CustomWidgets/meetup_tile.dart';
+import 'package:hack2k19/Views/meetup_detail.dart';
 
 class HomeView extends StatelessWidget {
   @override
@@ -30,7 +31,7 @@ class HomeView extends StatelessWidget {
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           title: Text(
-            'Edit Profile',
+            'View Events',
             style: TextStyle(
                 fontSize: 25.0,
                 color: Colors.black,
@@ -51,7 +52,14 @@ class HomeView extends StatelessWidget {
                 return ListView.builder(
                   itemCount: snapshot.data.length,
                   itemBuilder: (context, index) {
-                    return MeetupTile(snapshot.data[index]);
+                    return InkWell(
+                      onTap: () {
+                        Route route = MaterialPageRoute(
+                            builder: (BuildContext context) => MeetupDetail(snapshot.data[index]));
+                        Navigator.push(context, route);
+                      },
+                      child: MeetupTile(snapshot.data[index]),
+                    );
                   },
                 );
               }

@@ -26,7 +26,6 @@ class HomeViewController {
           sourceImage: data[i]['SourceImage'],
         ));
       }
-      print(response.body);
     }
     return meetups;
   }

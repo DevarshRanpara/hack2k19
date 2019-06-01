@@ -24,12 +24,12 @@ class MeetupTile extends StatelessWidget {
                             new BorderSide(width: 1.0, color: Colors.white24))),
                 child: CircularImage(
                   NetworkImage(meetup.sourceImage),
-                          width: 40,
-                          height: 40,
+                  width: 40,
+                  height: 40,
                 ),
               ),
               title: Text(
-                meetup.title + ' ' + meetup.id,
+                meetup.title,
                 style:
                     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               ),
