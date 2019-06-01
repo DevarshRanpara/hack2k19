@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hack2k19/Views/login_view.dart';
 
 import 'Views/home_view.dart';
+
 
 
  void main() => runApp(MyApp());
