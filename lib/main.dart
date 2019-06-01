@@ -4,6 +4,8 @@ import 'package:hack2k19/Views/temp.dart';
 
 import 'Views/home_view.dart';
 
+void main() => runApp(MyApp());
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -12,8 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Temp(),
+      home: HomeView(),
     );
   }
 }
-

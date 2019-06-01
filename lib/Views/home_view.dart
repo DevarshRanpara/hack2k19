@@ -1,112 +1,64 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-//import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:intl/intl.dart';
+import 'package:hack2k19/Classes/meetup.dart';
+import 'package:hack2k19/Classes/temp_data.dart';
+import 'package:hack2k19/Controller/home_view_controller.dart';
+import 'package:hack2k19/CustomWidgets/loading_animation.dart';
+import 'package:hack2k19/CustomWidgets/meetup_tile.dart';
 
-Map _data;
-List _features; // features object list
-
-
-class Quakes extends StatelessWidget {
+class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Quakes'),
-        centerTitle: true,
-        backgroundColor: Colors.red,
+    HomeViewController controller = HomeViewController();
+    controller.getData();
+    // List<Meetup> data = List<Meetup>();
+    // data = TempData.getData();
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          stops: [0.1, 0.5, 0.7, 0.9],
+          colors: [
+            Colors.pink[100],
+            Colors.pink[200],
+            Colors.blue[300],
+            Colors.blue[400],
+          ],
+        ),
       ),
-      body: new Center(
-        child: FutureBuilder(future: getQuakes(),
-        builder:(context,snapshot){
-          if(snapshot.data == null){
-            return Container();
-          }
-          else{
-            _features = snapshot.data['features'];
-            return ListView.builder(
-            itemCount: _features.length,
-            padding: const EdgeInsets.all(15.0),
-            //Date format: https://pub.dartlang.org/packages/intl#-readme-tab-
-            //DateFormat: https://www.dartdocs.org/documentation/intl/0.15.1/intl/DateFormat-class.html
-            //https://stackoverflow.com/questions/45357520/dart-converting-milliseconds-since-epoch-unix-timestamp-into-human-readable
-
-            itemBuilder: (BuildContext context, int position) {
-              //crating the rows for our listview
-              if (position.isOdd) return new Divider();
-              final index = position ~/
-                  2; // we are dividing position by 2 and returning an integer result
-
-              var format = new DateFormat.yMMMMd("en_US").add_jm();
-              //var dateString = format.format(date);
-              var date = format.format(new DateTime.fromMicrosecondsSinceEpoch(
-                  _features[index]['properties']['time'] * 1000,
-                  isUtc: true));
-
-              return new ListTile(
-                title: new Text(
-                  " $date",
-                  //title: new Text("Date: $date",
-                  style: new TextStyle(
-                      fontSize: 15.5,
-                      color: Colors.orange,
-                      fontWeight: FontWeight.w500),
-                ),
-                subtitle: new Text(
-                  "${_features[index]['properties']['place']}",
-                  style: new TextStyle(
-                      fontSize: 14.5,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey,
-                      fontStyle: FontStyle.italic),
-                ),
-                leading: new CircleAvatar(
-                  backgroundColor: Colors.green,
-                  child: new Text(
-                    "${_features[index]['properties']['mag']}",
-                    style: new TextStyle(
-                        fontSize: 16.5,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        fontStyle: FontStyle.normal),
-                  ),
-                ),
-                onTap: () {
-                  _showAlertMessage(
-                      context, "${_features[index]['properties']['title']}");
-                },
-              );
-            });
-          }
-        } ,)
-      ),
-    );
-  }
-
-  void _showAlertMessage(BuildContext context, String message) {
-    var alert = new AlertDialog(
-      title: new Text('Quakes'),
-      content: new Text(message),
-      actions: <Widget>[
-        new FlatButton(
-            onPressed: () {
-              Navigator.pop(context);
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: Text(
+            'Edit Profile',
+            style: TextStyle(
+                fontSize: 25.0,
+                color: Colors.black,
+                fontWeight: FontWeight.bold),
+          ),
+          centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+        ),
+        body: Container(
+          padding: EdgeInsets.all(8.0),
+          child: FutureBuilder(
+            future: controller.getData(),
+            builder: (context, snapshot) {
+              if (snapshot.data == null) {
+                return LoadingAnimation();
+              } else {
+                return ListView.builder(
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (context, index) {
+                    return MeetupTile(snapshot.data[index]);
+                  },
+                );
+              }
             },
-            child: new Text('OK'))
-      ],
+          ),
+        ),
+      ),
     );
-    showDialog(context: context, child: alert);
   }
 }
-
-Future<Map> getQuakes() async {
-  String apiUrl =
-      'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson';
-
-  http.Response response = await http.get(apiUrl);
-
-  return json.decode(response.body);
-}
-
