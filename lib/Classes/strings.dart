@@ -6,7 +6,7 @@ class Strings{
   static const String roleAdmin = 'admin';
   static const String roleUser = 'user';
   static const String roleBuilder = 'builder';
-  static const String title = "VR App";
+  static const String title = "Hack2k19";
 
   static const String invalidUserMessage = "Invalid User ID or password";
   static const String internetErrorMsg = "No active internet connection";
