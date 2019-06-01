@@ -18,12 +18,9 @@ class HomeView extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
-          stops: [0.1, 0.5, 0.7, 0.9],
           colors: [
-            Colors.pink[100],
-            Colors.pink[200],
-            Colors.blue[300],
-            Colors.blue[400],
+            Colors.white10,
+            Colors.white70,
           ],
         ),
       ),
@@ -34,7 +31,7 @@ class HomeView extends StatelessWidget {
             'View Events',
             style: TextStyle(
                 fontSize: 25.0,
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.bold),
           ),
           centerTitle: true,

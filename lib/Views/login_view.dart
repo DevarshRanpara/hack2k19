@@ -5,6 +5,7 @@ import 'package:hack2k19/CustomWidgets/custom_card.dart';
 import 'package:hack2k19/CustomWidgets/fancy_button.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:hack2k19/Views/forget_pass.dart';
+import 'package:hack2k19/Views/home_view.dart';
 import 'package:hack2k19/Views/signup_view.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,7 +21,7 @@ class LoginPageState extends State<HomePage> {
   String _userId;
   String _password;
 
-  bool showfab2=true;
+  bool showfab2 = true;
 
   @override
   void initState() {
@@ -37,10 +38,13 @@ class LoginPageState extends State<HomePage> {
       //String res = await loginModel.auth(_userId, _password);
       _gotoHome('invalid');
     }
+    Route route =
+        MaterialPageRoute(builder: (BuildContext context) => HomeView());
+    Navigator.pushReplacement(context, route);
   }
 
   _setLoading() {
-    showfab2=false;
+    showfab2 = false;
     setState(() {
       lgForm = SizedBox(
         height: 200,
@@ -54,20 +58,13 @@ class LoginPageState extends State<HomePage> {
   }
 
   _setBackForm() {
-    showfab2=true;
+    showfab2 = true;
     setState(() {
       lgForm = Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Container(
-            width: 130.0,
-            height: 130.0,
-            decoration: new BoxDecoration(
-              image: new DecorationImage(
-                image: new AssetImage(Strings.rLogoTeal),
-                fit: BoxFit.contain,
-              ),
-            ),
+          FlutterLogo(
+            size: 120,
           ),
           Form(
             key: formKey,
@@ -118,13 +115,16 @@ class LoginPageState extends State<HomePage> {
                       },
                       splashColor: Colors.red,
                     ),
-                    SizedBox(height: 10.0,),
+                    SizedBox(
+                      height: 10.0,
+                    ),
                     GestureDetector(
-                      onTap: (){
-                         Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => ForgotPassView()));
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    ForgotPassView()));
                       },
                       child: Text('Forgot Password?'),
                     )

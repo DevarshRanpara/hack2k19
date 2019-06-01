@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hack2k19/Classes/meetup.dart';
+import 'package:hack2k19/Views/feed_back.dart';
 
 class MeetupDetail extends StatelessWidget {
   final Meetup meetup;
@@ -12,12 +13,9 @@ class MeetupDetail extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
-          stops: [0.1, 0.5, 0.7, 0.9],
           colors: [
-            Colors.pink[100],
-            Colors.pink[200],
-            Colors.blue[300],
-            Colors.blue[400],
+            Colors.white10,
+            Colors.white70,
           ],
         ),
       ),
@@ -102,6 +100,22 @@ class MeetupDetail extends StatelessWidget {
                     onPressed: () {},
                     splashColor: Colors.red,
                   ),
+                  SizedBox(
+                    height: 5.0,
+                  ),
+                  MaterialButton(
+                    height: 40.0,
+                    minWidth: 200.0,
+                    color: Colors.grey,
+                    textColor: Colors.white,
+                    child: Text('Give Feedback'),
+                    onPressed: () {
+                      Route route = MaterialPageRoute(
+                            builder: (BuildContext context) => Feed_back());
+                        Navigator.push(context, route);
+                    },
+                    splashColor: Colors.blue,
+                  ),
                 ],
               ),
             ),
@@ -109,7 +123,7 @@ class MeetupDetail extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(top: 30),
             child: IconButton(
-              icon: Icon(Icons.arrow_back_ios, color: Colors.black, size: 30.0),
+              icon: Icon(Icons.arrow_back_ios, color: Colors.white, size: 30.0),
               onPressed: () {
                 Navigator.pop(context, true);
               },

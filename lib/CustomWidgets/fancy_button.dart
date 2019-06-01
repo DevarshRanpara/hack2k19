@@ -16,7 +16,7 @@ class FancyButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Icon(
-              Icons.explore,
+              Icons.add,
               color: Colors.amber,
             ),
             SizedBox(
@@ -29,7 +29,7 @@ class FancyButton extends StatelessWidget {
           ],
         ),
       ),
-      fillColor: Colors.deepOrange,
+      fillColor: Colors.red,
       splashColor: Colors.orange,
       onPressed: onPressed,
       shape: const StadiumBorder(),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hack2k19/misc/rating.dart';
 
-
 class Feed_back extends StatefulWidget {
   @override
   _Feed_backState createState() => new _Feed_backState();
@@ -32,8 +31,18 @@ class _Feed_backState extends State<Feed_back> {
         backgroundColor: Colors.white,
         body: Center(
           child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                stops: [0.8,0.9],
+                colors: [
+                  Colors.white10,
+                  Colors.black12,
+                ],
+              ),
+            ),
             child: new Column(
-              
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
@@ -44,33 +53,29 @@ class _Feed_backState extends State<Feed_back> {
                 Padding(
                   padding: const EdgeInsets.all(48.0),
                   child: Text(
-                    "Feed Back",style: TextStyle(fontSize: 30,color: Colors.red),
+                    "Feed Back",
+                    style: TextStyle(fontSize: 30, color: Colors.red),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(55.0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 55, horizontal: 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Rating(
-                        initialRating: _ratings[2],
-                        size: 48.0,
-                        color: Colors.amber,
-                        onRated: (int value) {
-                          setState(() {
-                            _ratings[2] = value;
-                          });
-                        },
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          _ratings[2].toString(),
-                          style: TextStyle(
-                            fontSize: 24.0,
-                          ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: Rating(
+                          initialRating: _ratings[2],
+                          size: 48.0,
+                          color: Colors.amber,
+                          onRated: (int value) {
+                            setState(() {
+                              _ratings[2] = value;
+                            });
+                          },
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -79,26 +84,23 @@ class _Feed_backState extends State<Feed_back> {
                   child: TextField(
                     controller: _textFieldController,
                     decoration: InputDecoration(
-                      hintText: "Enter Username",
+                      hintText: "Your Comments",
                       icon: Icon(Icons.label),
                     ),
                   ),
                 ),
-                
-                
-              Padding(
-                padding: const EdgeInsets.all(28.0),
-                child: RaisedButton(
-                child: const Text('Submit'),
-                color: Theme.of(context).accentColor,
-                elevation: 4.0,
-                splashColor: Colors.blueGrey,
-                onPressed: () {
-                  // Perform some action
-                },
-            ),
-              ),
-                
+                Padding(
+                  padding: const EdgeInsets.all(28.0),
+                  child: RaisedButton(
+                    child: const Text('Submit'),
+                    color: Colors.grey,
+                    elevation: 4.0,
+                    splashColor: Colors.blueGrey,
+                    onPressed: () {
+                      // Perform some action
+                    },
+                  ),
+                ),
               ],
             ),
           ),
