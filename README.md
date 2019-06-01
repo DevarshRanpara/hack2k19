@@ -5,7 +5,7 @@
 ##Login
 
 ## View Events Details
-![Screenshots on ios](./screenshots/6.jpeg)
+![Screenshots on iOS](./screenshots/6.jpeg)
 ## FeedBack
 
 ## Team Members
